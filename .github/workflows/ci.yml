@@ -1,0 +1,37 @@
+name: Obsync CI
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "**.ts"
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "**.ts"
+
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Lint with eslint
+        run: yarn lint
+
+      - name: Test the plugin with coverage
+        run: yarn coverage
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

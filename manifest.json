@@ -1,0 +1,10 @@
+{
+	"id": "obsync-plugin",
+	"name": "Obsync",
+	"version": "0.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "File sync plugin for Obsidian.md.",
+	"author": "Ryan Bell",
+	"authorUrl": "https://ryanbell.dev",
+	"isDesktopOnly": false
+}
